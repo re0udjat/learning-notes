@@ -22,7 +22,7 @@ kubectl get csv -n operators
 
 **Step 3:** Create Runner Group on GitLab UI:
 
-![[RegisterRunner.png]]
+![](./Images/GitLab/RegisterRunner.png)
 
 Create a K8s Secret to store authentication token obtained from the created Runner Group above:
 
@@ -59,5 +59,5 @@ K8s Executor calls the K8s cluster API and creates a Pod for each GitLab CI Job:
 - **Step 3 - Build:** GitLab Runner do build.
 - **Step 4 - Post-build:** K8s uses the special Container again to create cache, upload artifacts to GitLab.
 
-![[K8sExecutorWorkflow.png]]
+![](./Images/GitLab/K8sExecutorWorkflow.png)
 
