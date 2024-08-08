@@ -11,8 +11,12 @@
             "id": "fb4ea835a4b43ef6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Developer/Software Architecture/MVC.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 334.5
+    "width": 334.5,
+    "collapsed": true
   },
   "right": {
     "id": "c6c890fb1d74eb61",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Developer/Software Architecture/MVC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Developer/Software Architecture/MVC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Developer/Software Architecture/MVC.md"
+              }
             }
           }
         ]
@@ -140,6 +149,18 @@
   },
   "active": "fb4ea835a4b43ef6",
   "lastOpenFiles": [
+    "Developer/Software Architecture/MVC Pattern.md",
+    "Developer/Software Architecture/MVC.md",
+    "Developer/Software Architecture/Untitled.md",
+    "Developer/Programming Language/C#/Properties.md",
+    "Developer/Software Architecture/MVC.md",
+    "Developer/Software Architecture",
+    "Developer/Programming Language/C#/Propert.md",
+    "Developer/Programming Language/C#/Untitled.md",
+    "Developer/Programming Language/C#.md",
+    "Developer/Programming Language/C#",
+    "Developer/Programming Language/Untitled.md",
+    "Developer/Programming Language",
     "Operator.md",
     "SRE/VCS/GitLab.md",
     "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
