@@ -6,7 +6,7 @@
 
 **Step 2:** Install Operator Lifecycle Manager - OLM to help manage the Operators running on K8s's `olm` namespace:
 
-[[Operator Lifecycle Manager - OLM#1. Install OLM on K8s]]
+[[#Operator Lifecycle Manager - OLM#1. Install OLM on K8s]]
 
 Then, install GitLab Runner Operator on K8s's `operators` namespace:
 
