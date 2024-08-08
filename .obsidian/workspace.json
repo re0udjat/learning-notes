@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "080e484ee13def0d",
+        "id": "ec2496ffe64a7dd9",
         "type": "tabs",
         "children": [
           {
-            "id": "2525d155b210a086",
+            "id": "6ec1923908bed82d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SRE/VCS/GitLab.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SRE/VCS/GitLab.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SRE/VCS/GitLab.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "SRE/VCS/GitLab.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,8 +138,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2525d155b210a086",
+  "active": "6ec1923908bed82d",
   "lastOpenFiles": [
+    "SRE/Kubernetes/CRDs/Cert-manager.md",
+    "SRE/VCS/GitLab.md",
+    "().md",
     "README.md"
   ]
 }
