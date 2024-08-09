@@ -30,13 +30,11 @@ Create a K8s Secret to store authentication token obtained from the created Runn
 apiVersion: v1
 kind: Secret
 metadata:
-  name: <GITLAB_RUNNER_SECRET_NAME>
-  namespace: <GITLAB_RUNNER_NAMESPACE>
+  name: gitlab-runner-secret
+  namespace: gitlab-runner
 stringData:
-  runner-token: <GITLAB_RUNNER_GROUP_TOKEN>
+  runner-token: "REDACTED"
 ```
-
-^245206
 
 Create a GitLab Runner from the following manifest:
 
@@ -44,72 +42,97 @@ Create a GitLab Runner from the following manifest:
 apiVersion: apps.gitlab.com/v1beta2
 kind: Runner
 metadata:
-  name: <GITLAB_RUNNER_NAME>
-  namespace: <GITLAB_RUNNER_NAMESPACE>
+  name: gitlab-runner-operator
+  namespace: gitlab-runner
 spec:
-  gitlabUrl: <GITLAB_URL>
+  gitlabUrl: https://gitlab.com
   
   # Read Runner Group authentication token stored in K8s Secret
-  token: <GITLAB_RUNNER_SECRET_NAME>
+  token: gitlab-runner-secret
   buildImage: "alpine" 
 ```
-## 1.2. Customize GitLab Runner Configuration
+# 2. GitLab Runner + Helm
 
-To change the behavior of GitLab Runner and individual registered runners, modify the `config.toml` file.
+## 2.1. Setup GitLab Runner with Helm Chart
 
-Create a `config.toml` file:
-
-```toml
-concurrent = 20
-check_interval = 5
-log_level = "debug"
-listen_address = "[::]:9252"
-
-[[runners]]
-  executor = "kubernetes"
-  [runners.kubernetes]
-    pull_policy = "if-not-present"
-```
-
-Use [K8s's Kustomize to generate ConfigMap from file](../Kubernetes/CRDs/Kustomize.md#^00ffa5):
-
-```yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-configMapGenerator:
-  - name: <GITLAB_RUNNER_CUSTON_CONFIGMAP_NAME>
-    files:
-    - config.toml
-generatorOptions:
-  disableNameSuffixHash: true
-```
-
-The kustomization file must be in the same directory as `config.toml` and its structure like the following:
-
-```console
-| GitLab
-| - config.toml
-| - kustomization.yaml
-| - ...
-```
-
-Create K8s's ConfigMap from `config.toml` file:
+**Step 1:** Add the GitLab Helm repository:
 
 ```bash
-kubectl apply -k .
+helm repo add gitlab https://charts.gitlab.io && helm repo update gitlab
 ```
 
-Add `config` property to the [Runner's manifest](#^245206):
+**Step 2:** Create Runner Group on GitLab UI:
+
+![](./Images/GitLab/RegisterRunner.png)
+
+Define a K8s Secret manifest `gitlab-runner-secret.yaml` to store authentication token obtained from the created Runner Group above:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitlab-runner-secret
+  namespace: gitlab-runner
+stringData:
+  runner-registration-token: ""
+  runner-token: "REDACTED"
+```
+
+Create Secret object on K8s:
+
+```bash
+kubectl apply -f gitlab-runner-secret.yaml
+```
+
+**Step 3:**  Create `values.yaml` file to customize GitLab Helm configuration:
+
+```yaml
+# The GitLab server full URL to register the runner against
+gitlabUrl: https://gitlab.com
+
+# Create RBAC rules for GitLab Runner to create Pods to run Jobs in
+rbac:
+  create: true
+
+runners:
+  # Authentication token which is stored directly in a secret instead of hard-coded string for security
+  secret: gitlab-runner-secret
+```
+
+^937e08
+
+Deploy GitLab Runner instance into K8s cluster:
+
+```yaml
+helm install --namespace gitlab-runner gitlab-runner -f values.yaml gitlab/gitlab-runner
+```
+
+## 2.2. Customize GitLab Runner Configuration
+
+To change the behavior of GitLab Runner and individual registered runners, modify the [`values.yaml`](#^937e08) file:
 
 ```yaml
 ...
-spec:
-  gitlabUrl: <GITLAB_URL>
-  token: gitlab-runner-secret
-  buildImage: "alpine"
-  config: <GITLAB_RUNNER_CUSTOM_CONFIGMAP_NAME>
+runners:
+  secret: gitlab-runner-secret
+  config: |
+    concurrent = 15
+    log_level = "debug"
+    listen_address = "[::]:9252"
+
+    [[runners]]
+      url = "https://git.poc.vnshop.cloud"
+      executor = "kubernetes"
+      pull_policy = "if-not-present"
+      [runner.kubernetes]
+        image = "alpine"
 ```
-## 1.3. How the K8s Executor Work
+
+Upgrade configuration changes:
+
+```bash
+helm upgrade --namespace gitlab-runner -f values.yaml gitlab-runner gitlab/gitlab-runner
+```
+## 2.3. How the K8s Executor Work
 
 ![](./Images/GitLab/K8sExecutorWorkflow.png)
-
