@@ -2,6 +2,8 @@
 
 # 1. Install OLM on K8s
 
+^f56b44
+
 To install OLM on K8s, run:
 
 ```shell

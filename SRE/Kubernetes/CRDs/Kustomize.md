@@ -1,4 +1,6 @@
-> Kustomize is a standalone tool to customize K8s objects through a kustomization file.
+> Kustomize is a standalone tool to customize K8s configurations through a kustomization file.
+
+^3db826
 
 # Generate ConfigMap From File
 

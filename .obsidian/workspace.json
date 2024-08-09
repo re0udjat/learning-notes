@@ -4,16 +4,28 @@
     "type": "split",
     "children": [
       {
-        "id": "e51feb86d5c49755",
+        "id": "9103812301a57625",
         "type": "tabs",
         "children": [
           {
-            "id": "b3cd9c15ddb34f72",
+            "id": "b7dfa25b7ca37b65",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "SRE/VCS/GitLab.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "9c067590d46eacf3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SRE/Kubernetes/CRDs/Cert-manager.md",
                 "mode": "source",
                 "source": false
               }
@@ -147,13 +159,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b3cd9c15ddb34f72",
+  "active": "b7dfa25b7ca37b65",
   "lastOpenFiles": [
-    "SRE/Kubernetes/CRDs/Kustomize.md",
     "SRE/Kubernetes/CRDs/Cert-manager.md",
-    "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
-    "SRE/Kubernetes/CRDs/Untitled.md",
     "SRE/VCS/GitLab.md",
+    "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
+    "SRE/Kubernetes/CRDs/Kustomize.md",
+    "SRE/Kubernetes/CRDs/Untitled.md",
     "Developer/Software Architecture/MVC.md",
     "Developer/Software Architecture/MVC Pattern.md",
     "Developer/Software Architecture/Untitled.md",

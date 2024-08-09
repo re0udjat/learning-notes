@@ -4,5 +4,7 @@
   "newLinkFormat": "relative",
   "useMarkdownLinks": true,
   "attachmentFolderPath": "./",
-  "spellcheck": false
+  "spellcheck": false,
+  "tabSize": 2,
+  "useTab": false
 }
