@@ -6,7 +6,7 @@
 
 **Step 2:** Install Operator Lifecycle Manager - OLM to help manage the Operators running on K8s's `olm` namespace:
 
-[[#Operator Lifecycle Manager - OLM#1. Install OLM on K8s]]
+[[Operator Lifecycle Manager - OLM#1. Install OLM on K8s]]
 
 Then, install GitLab Runner Operator on K8s's `operators` namespace:
 
@@ -33,7 +33,7 @@ metadata:
   name: gitlab-runner-secret
   namespace: gitlab
 stringData:
-  runner-token: "glrt-ssXTuqJ7RQ3uxXyshHuJ"
+  runner-token: <GITLAB_RUNNER_GROUP_TOKEN>
 ```
 
 Create a GitLab Runner from the following manifest:
@@ -42,9 +42,9 @@ Create a GitLab Runner from the following manifest:
 apiVersion: apps.gitlab.com/v1beta2
 kind: Runner
 metadata:
-  name: gitlab-runner-vnshop
+  name: gitlab-runner
 spec:
-  gitlabUrl: https://git.poc.vnshop.cloud
+  gitlabUrl: <GITLAB_URL>
   
   # Read Runner Group authentication token stored in K8s Secret
   token: gitlab-runner-secret 
