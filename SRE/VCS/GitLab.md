@@ -30,8 +30,8 @@ Create a K8s Secret to store authentication token obtained from the created Runn
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gitlab-runner-secret
-  namespace: gitlab
+  name: <GITLAB_RUNNER_NAME>
+  namespace: <GITLAB_RUNNER_NAMESPACE>
 stringData:
   runner-token: <GITLAB_RUNNER_GROUP_TOKEN>
 ```
@@ -42,7 +42,8 @@ Create a GitLab Runner from the following manifest:
 apiVersion: apps.gitlab.com/v1beta2
 kind: Runner
 metadata:
-  name: gitlab-runner
+  name: <GITLAB_RUNNER_NAME>
+  namespace: <GITLAB_RUNNER_NAMESPACE>
 spec:
   gitlabUrl: <GITLAB_URL>
   

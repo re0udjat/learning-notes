@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
+                "file": "SRE/VCS/GitLab.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 334.5
+    "width": 334.5,
+    "collapsed": true
   },
   "right": {
     "id": "c6c890fb1d74eb61",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
+                "file": "SRE/VCS/GitLab.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
+                "file": "SRE/VCS/GitLab.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SRE/Kubernetes/CRDs/Kustomize.md"
+                "file": "SRE/VCS/GitLab.md"
               }
             }
           }
@@ -148,8 +149,8 @@
   },
   "active": "b3cd9c15ddb34f72",
   "lastOpenFiles": [
-    "SRE/Kubernetes/CRDs/Cert-manager.md",
     "SRE/Kubernetes/CRDs/Kustomize.md",
+    "SRE/Kubernetes/CRDs/Cert-manager.md",
     "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
     "SRE/Kubernetes/CRDs/Untitled.md",
     "SRE/VCS/GitLab.md",
