@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f07febd9e3796222",
+        "id": "e51feb86d5c49755",
         "type": "tabs",
         "children": [
           {
-            "id": "7a48fa58e999c287",
+            "id": "b3cd9c15ddb34f72",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SRE/VCS/GitLab.md",
+                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
                 "mode": "source",
                 "source": false
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 334.5,
-    "collapsed": true
+    "width": 334.5
   },
   "right": {
     "id": "c6c890fb1d74eb61",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SRE/VCS/GitLab.md",
+                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "SRE/VCS/GitLab.md",
+                "file": "SRE/Kubernetes/CRDs/Kustomize.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "SRE/VCS/GitLab.md"
+                "file": "SRE/Kubernetes/CRDs/Kustomize.md"
               }
             }
           }
@@ -147,11 +146,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7a48fa58e999c287",
+  "active": "b3cd9c15ddb34f72",
   "lastOpenFiles": [
-    "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
-    "SRE/VCS/GitLab.md",
     "SRE/Kubernetes/CRDs/Cert-manager.md",
+    "SRE/Kubernetes/CRDs/Kustomize.md",
+    "SRE/Kubernetes/CRDs/Operator Lifecycle Manager - OLM.md",
+    "SRE/Kubernetes/CRDs/Untitled.md",
+    "SRE/VCS/GitLab.md",
     "Developer/Software Architecture/MVC.md",
     "Developer/Software Architecture/MVC Pattern.md",
     "Developer/Software Architecture/Untitled.md",
