@@ -1,4 +1,7 @@
 # 1. GitLab Runner + GitLab Runner Operator
+
+> GitLab Runner Operator aims to manage the lifecycle of GitLab Runner instances in K8s or Openshift container platforms.
+
 ## 1.1. Setup GitLab Runner on K8s with GitLab Runner Operator
 
 **Step 1:** [Install Cert Manager on K8s's `cert-manager` namespace](../Kubernetes/CRDs/Cert-manager.md#^3bee9b).
@@ -27,7 +30,7 @@ Create a K8s Secret to store authentication token obtained from the created Runn
 apiVersion: v1
 kind: Secret
 metadata:
-  name: <GITLAB_RUNNER_NAME>
+  name: <GITLAB_RUNNER_SECRET_NAME>
   namespace: <GITLAB_RUNNER_NAMESPACE>
 stringData:
   runner-token: <GITLAB_RUNNER_GROUP_TOKEN>
@@ -47,7 +50,8 @@ spec:
   gitlabUrl: <GITLAB_URL>
   
   # Read Runner Group authentication token stored in K8s Secret
-  token: gitlab-runner-secret 
+  token: <GITLAB_RUNNER_SECRET_NAME>
+  buildImage: "alpine" 
 ```
 ## 1.2. Customize GitLab Runner Configuration
 
@@ -67,7 +71,7 @@ listen_address = "[::]:9252"
     pull_policy = "if-not-present"
 ```
 
-Use [K8s's Kustomize to generate ConfigMap from file](../Kubernetes/CRDs/Kustomize.md#^3db826):
+Use [K8s's Kustomize to generate ConfigMap from file](../Kubernetes/CRDs/Kustomize.md#^00ffa5):
 
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
@@ -102,16 +106,10 @@ Add `config` property to the [Runner's manifest](#^245206):
 spec:
   gitlabUrl: <GITLAB_URL>
   token: gitlab-runner-secret
+  buildImage: "alpine"
   config: <GITLAB_RUNNER_CUSTOM_CONFIGMAP_NAME>
 ```
 ## 1.3. How the K8s Executor Work
-
-K8s Executor calls the K8s cluster API and creates a Pod for each GitLab CI Job:
-
-- **Step 1 - Prepare:** K8s create the Pod which includes Containers required for the build and services to run.
-- **Step 2 - Pre-build:** K8s uses a special Container in Pod to clone, restore cache, and download artifacts from previous stages.
-- **Step 3 - Build:** GitLab Runner do build.
-- **Step 4 - Post-build:** K8s uses the special Container again to create cache, upload artifacts to GitLab.
 
 ![](./Images/GitLab/K8sExecutorWorkflow.png)
 
